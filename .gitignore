@@ -1,0 +1,4 @@
+data/private
+data/private/*
+data/.*
+
