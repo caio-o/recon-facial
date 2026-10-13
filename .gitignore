@@ -3,4 +3,6 @@ data/private/*
 data/.*
 data/public/lfw
 data/public/lfw/*
+src/facenet_pytorch
+src/facenet_pytorch/*
 

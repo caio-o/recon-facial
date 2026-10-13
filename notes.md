@@ -38,4 +38,45 @@ ser reconhecidas.
 **Testes**: AFAZER.
 
 **Revisão**: AFAZER.
+##Estratégias a serem investigadas
+
+Podem ser comparadas, entre outras:
+* Modelo pré-treinado sem fine-tuning
+Modelo pré-treinado > Embeddings > Reconhecimento
+
+* Fine-tuning parcial
+Parte da rede permanece congelada enquanto as últimas camadas são atualizadas.
+
+* Fine-tuning completo
+Os parâmetros da rede são atualizados durante o treinamento.
+
+## Estratégias de comparação
+
+Podem ser utilizadas:
+
+* distância Euclidiana;
+
+* similaridade de cosseno;
+
+* k-NN;
+
+* SVM;
+
+* protótipos de classe;
+
+* outros classificadores.
+
+## Funções de perda
+
+Podem ser investigadas:
+
+* Cross-Entropy;
+
+* Contrastive Loss;
+
+* Triplet Loss;
+
+* ArcFace Loss;
+
+* outras técnicas de Metric Learning.
 
