@@ -101,7 +101,11 @@ convenience.
 - **Enrollment:** a member is added only after consent is signed.
   Their photos are then captured and added to the private database.
 - **Removal:** when a member is removed, all their photos and
-  related personal data, raw or processed, MUST be deleted.
+  related personal data, raw or processed, MUST be deleted. This 
+  includes the trained weights and embeddings, according to the 
+  [Decision 0002: Member Removal Policy](decisions/0002-member-removal-policy.md##decision). 
+  As such, model retraining 
+  MUST happen according to the §9.2 of this constitution.
 - **No personal data in the repository:** photos, embeddings, and
   trained models of employees MUST NOT be committed to version
   control.
@@ -138,7 +142,12 @@ decision before the related spec is finalized.
    per face).
 2. **Retraining on member removal:** whether removal must trigger
    retraining, since embeddings and trained weights may encode a
-   removed person's face. Research needed.
+   removed person's face; according to the decision 
+   [Decision 0002: Member Removal Policy](decisions/0002-member-removal-policy.md##decision)
+    a retraining of the face 
+   recognition models (which were trained on the member's data) 
+   MUST happen within a time window of 30 days after the member's 
+   removal.
 3. **Entrance photo retention:** how long photos from the camera
    are kept. **Provisional default:** photos are processed and not
    stored, until this is decided.
