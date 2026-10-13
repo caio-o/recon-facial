@@ -1,4 +1,4 @@
-# 0002: Member removal policy (data, embeddings, retraining)
+# 0001: Member removal policy (data, embeddings, retraining)
 
 Status: accepted
 Date: 2026-10-13

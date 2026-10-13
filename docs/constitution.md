@@ -103,7 +103,7 @@ convenience.
 - **Removal:** when a member is removed, all their photos and
   related personal data, raw or processed, MUST be deleted. This 
   includes the trained weights and embeddings, according to the 
-  [Decision 0002: Member Removal Policy](decisions/0002-member-removal-policy.md##decision). 
+  [Decision 0001: Member Removal Policy](decisions/0001-member-removal-policy.md##decision). 
   As such, model retraining 
   MUST happen according to the §9.2 of this constitution.
 - **No personal data in the repository:** photos, embeddings, and
