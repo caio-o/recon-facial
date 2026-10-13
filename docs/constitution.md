@@ -140,18 +140,10 @@ decision before the related spec is finalized.
 1. **Multiple faces in one photo:** behavior is to be defined later
    (for example reject, use the largest face, or return one result
    per face).
-2. **Retraining on member removal:** whether removal must trigger
-   retraining, since embeddings and trained weights may encode a
-   removed person's face; according to the decision 
-   [Decision 0002: Member Removal Policy](decisions/0002-member-removal-policy.md##decision)
-    a retraining of the face 
-   recognition models (which were trained on the member's data) 
-   MUST happen within a time window of 30 days after the member's 
-   removal.
-3. **Entrance photo retention:** how long photos from the camera
+2. **Entrance photo retention:** how long photos from the camera
    are kept. **Provisional default:** photos are processed and not
    stored, until this is decided.
-4. **Test framework and reproducibility:** test framework (for
+3. **Test framework and reproducibility:** test framework (for
    example pytest), random seeds, dependency pinning, and config
    files for hyperparameters are not yet chosen.
 
@@ -162,3 +154,4 @@ decision before the related spec is finalized.
 - Amendments MUST be written, dated, and give a reason.
 - Open Items, once decided, MUST be moved into the relevant section
   and removed from Section 9.
+
