@@ -1,4 +1,4 @@
-# Constitution
+# Constitutionlinks 
 
 Governing principles for the face recognition project. All specs,
 plans, tasks, and code MUST comply with this document. Where this
@@ -141,10 +141,15 @@ decision before the related spec is finalized.
 1. **Multiple faces in one photo:** behavior is to be defined later
    (for example reject, use the largest face, or return one result
    per face).
-2. **Entrance photo retention:** how long photos from the camera
+2. **Retraining on removal:** ~~wether models ought to be retrained 
+   on member removal, since §6 of this constitution asserts that personal
+   data "raw or processed", pertaining to a removed member, MUST be
+   deleted.~~ This item was closed by 
+   [Decision 0001: Member Removal Policy](decisions/0001-member-removal-policy.md).
+4. **Entrance photo retention:** how long photos from the camera
    are kept. **Provisional default:** photos are processed and not
    stored, until this is decided.
-3. **Test framework and reproducibility:** test framework (for
+5. **Test framework and reproducibility:** test framework (for
    example pytest), random seeds, dependency pinning, and config
    files for hyperparameters are not yet chosen.
 
