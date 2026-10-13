@@ -104,8 +104,9 @@ convenience.
   related personal data, raw or processed, MUST be deleted. This 
   includes the trained weights and embeddings, according to the 
   [Decision 0001: Member Removal Policy](decisions/0001-member-removal-policy.md##decision). 
-  As such, model retraining 
-  MUST happen according to the §9.2 of this constitution.
+  As such, if the model contains trained weights for a removed
+  member, it MUST be retrained within a time span of 30 days
+  counting from the former member's removal.
 - **No personal data in the repository:** photos, embeddings, and
   trained models of employees MUST NOT be committed to version
   control.
