@@ -16,7 +16,7 @@ def load_classes(base_dir):
     Returns:
         list[str]: sorted subdirectory names, suitable for load_photos().
     """
-    base = Path(base_dir)
+    base = Path(base_dir).absolute()
     if not base.is_dir():
         raise FileNotFoundError(f"Base directory not found: {base}")
     return sorted(
@@ -36,7 +36,7 @@ def load_photos(base_dir, classes):
     Returns:
         dict[str, list[Path]]: class name -> sorted list of image file paths.
     """
-    base = Path(base_dir)
+    base = Path(base_dir).absolute()
     photos = {}
     for cls in classes:
         class_dir = base / cls
@@ -44,7 +44,9 @@ def load_photos(base_dir, classes):
             raise FileNotFoundError(f"Class directory not found: {class_dir}")
         photos[cls] = sorted(
             p for p in class_dir.iterdir()
-            if p.is_file() and p.suffix.lower() in IMAGE_EXTENSIONS
+            if p.is_file() \
+            and not p.name.startswith(".") \
+            and p.suffix.lower() in IMAGE_EXTENSIONS
         )
     return photos
 
