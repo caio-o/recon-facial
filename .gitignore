@@ -5,4 +5,6 @@ data/public/lfw
 data/public/lfw/*
 src/facenet_pytorch
 src/facenet_pytorch/*
+src/__pycache__
+src/env
 
