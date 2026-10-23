@@ -17,19 +17,23 @@ def main():
     
     print("Loading photos...")
     photos = classes.load_photos(CLASSES_DIR, clss)
-    print("Photos for Leonardo DiCaprio:", photos["Lula"])
+    
+    successes = []
+    faces_not_found = []
 
-    print("Preprocessing Lula 1", photos["Lula"][0])
-    im = preprocess.load_preprocessed(photos["Lula"][0])
-    im.show()
+    for lst in photos.values():
+        for photo in lst:
+            try:
+                preprocess.load_preprocessed(photo)
+                successes.append(photo)
+            except ValueError:
+                faces_not_found.append(photo)
 
-    print("Preprocessing Lula 2", photos["Lula"][1])
-    im = preprocess.load_preprocessed(photos["Lula"][1])
-    im.show()
-
-    print("Preprocessing Lula 3", photos["Lula"][2])
-    im = preprocess.load_preprocessed(photos["Lula"][2])
-    im.show()
+    print('Faces found: ', len(successes))
+    print('Faces not found: ', len(faces_not_found))
+    print('List of photos where no face was found:')
+    for photo in faces_not_found:
+        print(photo)
 
     print("End of experiments.")
 
