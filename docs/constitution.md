@@ -35,8 +35,12 @@ Input: a single photo taken by the entrance camera.
 - **Language:** Python.
 - **ML framework:** PyTorch.
 - **Support libraries:** OpenCV where useful.
-- **Models:** MUST be trained from scratch. Pretrained weights MUST
-  NOT be used.
+- **Models:** MAY be trained from scratch or be pretrained, as
+  decided by experiments (see
+  [Decision 0002: Pretrained Models Policy](decisions/0002-pretrained-models-policy.md)).
+  Pretrained weights MUST have a recorded licence and provenance,
+  MUST NOT be committed to version control, and MUST NOT be
+  downloaded at runtime.
 - **Deployment:** local only, on a single device or a local server.
   No cloud inference and no external services at runtime.
 - **Latency:** the full pipeline MUST return a result in under
@@ -88,8 +92,9 @@ Rules:
 Face data is biometric and sensitive. These rules take priority over
 convenience.
 
-- **Sources:** employee photos and a public dataset. The license of
-  any public dataset MUST be checked and recorded.
+- **Sources:** employee photos, a public dataset, and pretrained
+  model weights. The license of any public dataset and of any
+  pretrained model weights MUST be checked and recorded.
 - **Consent:** an employee's photos MUST NOT enter the database
   until the employee has signed an acknowledgement and consent term.
 - **Local storage only:** images, embeddings, and trained models are
@@ -106,10 +111,13 @@ convenience.
   [Decision 0001: Member Removal Policy](decisions/0001-member-removal-policy.md##decision). 
   As such, if the model contains trained weights for a removed
   member, it MUST be retrained within a time span of 30 days
-  counting from the former member's removal.
+  counting from the former member's removal. Trained weights count
+  as processed personal data only when they were trained or
+  fine-tuned on the member's data (see
+  [Decision 0002: Pretrained Models Policy](decisions/0002-pretrained-models-policy.md)).
 - **No personal data in the repository:** photos, embeddings, and
-  trained models of employees MUST NOT be committed to version
-  control.
+  trained models of employees, as well as pretrained weights, MUST
+  NOT be committed to version control.
 
 ## 7. Testing Standards
 
@@ -146,12 +154,31 @@ decision before the related spec is finalized.
    data "raw or processed", pertaining to a removed member, MUST be
    deleted.~~ This item was closed by 
    [Decision 0001: Member Removal Policy](decisions/0001-member-removal-policy.md).
-4. **Entrance photo retention:** how long photos from the camera
+3. **Entrance photo retention:** how long photos from the camera
    are kept. **Provisional default:** photos are processed and not
    stored, until this is decided.
-5. **Test framework and reproducibility:** test framework (for
+4. **Test framework and reproducibility:** test framework (for
    example pytest), random seeds, dependency pinning, and config
    files for hyperparameters are not yet chosen.
+5. **Target hardware:** not defined. It must be fixed before latency
+   can be judged against the 3-second budget (§3).
+6. **Training data for from-scratch models:** the public dataset
+   planned for evaluation (LFW) is likely too small to train a
+   model from scratch. Which additional public dataset (and
+   licence) will be used?
+7. **Candidate models:** which pretrained face models to evaluate,
+   and what their licences and training data are. This MUST be
+   looked up for each candidate.
+8. **Frozen weights and privacy:** a frozen model trained only on
+   third-party data is treated in Decision 0002 as not containing
+   employee data. Confirm this reading with whoever is responsible
+   for privacy compliance.
+9. **Third-party consent:** whether the consent status of a
+   pretrained model's own training data is acceptable for the
+   company. This may need a separate decision.
+10. **Adoption margin:** whether "better than the best from-scratch
+    model" needs a minimum margin beyond non-overlapping
+    intervals.
 
 ## 10. Governance
 
