@@ -1,5 +1,6 @@
 data/private
 data/private/*
+data/
 data/.*
 data/public/lfw
 data/public/lfw/*
